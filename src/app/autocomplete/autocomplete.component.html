@@ -1,0 +1,29 @@
+<div class="example-full-width" [class.active]="myControl.disabled">
+  <input type="text"
+         placeholder="Pick one"
+         aria-label="Number"
+         matInput
+         [formControl]="myControl"
+         [matAutocomplete]="auto"
+
+         >
+  <mat-autocomplete #auto="matAutocomplete" [hidden]="true" (optionSelected)="mudarEstado()">
+    @for (option of filteredOptions | async; track option) {
+      <mat-option [value]="option">{{option}}</mat-option>
+    }
+  </mat-autocomplete>
+</div>
+<div class="example-full-width" [class.active]="item2.disabled">
+  <input type="text"
+         placeholder="Pick one"
+         aria-label="Number"
+         matInput
+         [formControl]="item2"
+         [matAutocomplete]="auto"
+         >
+  <mat-autocomplete #auto="matAutocomplete" [hidden]="true">
+    @for (option of filteredOptions | async; track option) {
+      <mat-option [value]="option">{{option}}</mat-option>
+    }
+  </mat-autocomplete>
+</div>
